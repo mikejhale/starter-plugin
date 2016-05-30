@@ -32,28 +32,12 @@ if ( ! defined( 'ABSPATH' ) ) {
 	die;
 }
 
-define( '{{plugin.contstant_prefix}}_INCLUDES', dirname( __FILE__ ) . '/includes' );
+define( '{{plugin.constant_prefix}}_INCLUDES', dirname( __FILE__ ) . '/includes' );
+define( '{{plugin.constant_prefix}}_ASSETS'  , plugin_dir_url( __FILE__ ) . '/assets' );
 
 add_action( 'plugins_loaded', '{{plugin.prefix}}_load_textdomain' );
 function {{plugin.prefix}}_load_textdomain() {
   load_plugin_textdomain( '{{plugin.slug}}', false, plugin_basename( dirname( __FILE__ ) ) . '/languages' );
-}
-
-// autoload classes
-spl_autoload_register( '{{plugin.prefix}}_autoloader' );
-function {{plugin.prefix}}_autoloader( $class ) {
-
-	$classes = array(
-    '{{plugin.package}}',
-    '{{plugin.package}}_Activator',
-    '{{plugin.package}}_Deactivator',
-		'{{plugin.package}}_Admin',
-	);
-
-	if ( in_array( $class, $classes ) ) {
-		require_once( 'classes/class.'. $class .'.php' );
-	}
-
 }
 
 /**
@@ -74,7 +58,6 @@ function {{plugin.prefix}}_deactivate_plugin() {
 	{{plugin.package}}_Deactivator::deactivate();
 }
 
-require_once( {{plugin.contstant_prefix}}_INCLUDES . '/widgets/{{plugin.slug}}-widget.php' );
-require_once( {{plugin.contstant_prefix}}_INCLUDES . '/shortcodes/{{plugin.slug}}-shortcodes.php' );
-
-${{plugin.function_slug}} = new {{plugin.package}};
+require_once( {{plugin.constant_prefix}}_INCLUDES . '/widgets/{{plugin.slug}}-widget.php' );
+require_once( {{plugin.constant_prefix}}_INCLUDES . '/shortcodes/{{plugin.slug}}-shortcodes.php' );
+require_once( dirname( __FILE__ ) . '/classes/class.{{plugin.package}}.php' );

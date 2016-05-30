@@ -14,6 +14,7 @@ var pluginTokens = require('./settings.json');
 gulp.task('admin-sass', function() {
   return gulp.src('./stylesheets/admin.scss')
     .pipe(sass())
+    .pipe(rename({prefix: pluginTokens.plugin.slug + '-'}))
     .pipe(gulp.dest('./plugin-build/' + pluginTokens.plugin.slug + '/assets/admin/css'));
 });
 
@@ -21,6 +22,7 @@ gulp.task('admin-sass', function() {
 gulp.task('public-sass', function() {
   return gulp.src('./stylesheets/public.scss')
     .pipe(sass())
+    .pipe(rename({prefix: pluginTokens.plugin.slug + '-'}))
     .pipe(gulp.dest('./plugin-build/' + pluginTokens.plugin.slug + '/assets/public/css'));
 });
 

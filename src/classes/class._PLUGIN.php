@@ -46,8 +46,11 @@ class {{plugin.package}} {
 
 		$this->plugin_name = '{{plugin.slug}}';
 		$this->version = '{{plugin.version}}';
+		spl_autoload_register( array( $this, '{{plugin.prefix}}_autoloader' ) );
 
 		${{plugin.function_slug}}_admin = new {{plugin.package}}_Admin;
+
+		add_action( 'wp_enqueue_scripts', array( $this, '{{plugin.function_slug}}_enqueue_scripts' ) );
 	}
 
 	/**
@@ -71,4 +74,38 @@ class {{plugin.package}} {
 		return $this->version;
 	}
 
+	/**
+	 * Retrieve the version number of the plugin.
+	 *
+	 * @since     {{plugin.version}}
+	 * @return    string    The version number of the plugin.
+	 */
+	function {{plugin.function_slug}}_enqueue_scripts() {
+		if ( is_admin() ) {
+			wp_enqueue_script( '{{plugin.function_slug}}_admin_script', {{plugin.constant_prefix}}_ASSETS . '/admin/js/{{plugin.slug}}-admin-script.min.js', array( 'jquery' ), '{{plugin.version}}', true );
+			wp_enqueue_script( '{{plugin.function_slug}}_admin_script', {{plugin.constant_prefix}}_ASSETS . '/admin/css/{{plugin.slug}}-admin.css' );
+		}
+		else {
+			wp_enqueue_script( '{{plugin.function_slug}}_public_script', {{plugin.constant_prefix}}_ASSETS . '/public/js/{{plugin.slug}}-public-script.min.js', array( 'jquery' ), '{{plugin.version}}', true );
+			wp_enqueue_script( '{{plugin.function_slug}}_public_script', {{plugin.constant_prefix}}_ASSETS . '/admin/css/{{plugin.slug}}-public.css' );
+		}
+	}
+
+	// autoload classes
+	function {{plugin.prefix}}_autoloader( $class ) {
+
+		$classes = array(
+	    '{{plugin.package}}_Activator',
+	    '{{plugin.package}}_Deactivator',
+			'{{plugin.package}}_Admin',
+		);
+
+		if ( in_array( $class, $classes ) ) {
+			require_once( 'class.'. $class .'.php' );
+		}
+
+	}
+
 }
+
+${{plugin.function_slug}} = new {{plugin.package}};
