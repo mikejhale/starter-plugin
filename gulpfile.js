@@ -47,7 +47,7 @@ gulp.task('public-js', function () {
   return gulp.src('./scripts/public/*.js')
     .pipe(jshint())
     .pipe(jshint.reporter('fail'))
-    .pipe(concat(pluginTokens.plugin.slug + '-script.js'))
+    .pipe(concat(pluginTokens.plugin.slug + '-public-script.js'))
     .pipe(gulp.dest('./plugin-build/' + pluginTokens.plugin.slug + '/assets/public/js'))
     .pipe(rename({suffix: '.min'}))
     .pipe(uglify())

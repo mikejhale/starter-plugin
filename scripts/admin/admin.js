@@ -1,1 +1,1 @@
-var x = 1;
+console.log('admin script');

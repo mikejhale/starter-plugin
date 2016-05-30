@@ -19,6 +19,6 @@
     "prefix":           "str_plgn_",
     "menu_title":       "Starter Plugin Settings",
     "menu_icon":        "",
-    "dev":              "c:\\xampp\\htdocs\\amp\\wp-content\\plugins\\"
+    "dev":              "E:\\xampp\\htdocs\\amp\\wp-content\\plugins\\"
   }
 }
