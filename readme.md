@@ -4,7 +4,7 @@ Uses Gulp to generate a starter WordPress plugin
 
 ## Code Example
 
-Change these settings for your plugin then run gulp to generate your starter plugin.
+Change these settings in the settings.json file for your plugin then run gulp to generate your starter plugin.
 
 ```
 {
@@ -14,12 +14,12 @@ Change these settings for your plugin then run gulp to generate your starter plu
     "tagline":          "What your plugin does in under 150 words",
     "uri":              "http://www.yourpluginurl.com",
     "desc":             "Short description of your plugin",
-    "author":           "youre name",
+    "author":           "your name",
     "author_uri":       "http://www.yoururl.com/",
     "tags":             "",
     "slug":             "plugin_slug",
     "function_slug":    "plugin_prefix",
-    "constant_prefix":  "PLGIN_PREFIX",
+    "constant_prefix":  "PLUGIN_PREFIX",
     "version":          "1.0.0",
     "requires_version": "4.0.0",
     "tested_version":   "4.5.2",
@@ -30,5 +30,4 @@ Change these settings for your plugin then run gulp to generate your starter plu
     "dev":              "path/to/test/folder"
   }
 }
-
 ```
