@@ -4,7 +4,17 @@ Uses Gulp to generate a starter WordPress plugin
 
 ## Code Example
 
-Change these settings in the settings.json file for your plugin then run gulp to generate your starter plugin.
+1. Clone this repo
+
+git clone https://github.com/mikejhale/starter-plugin`
+
+2. Install Gulp and required plugins 
+
+```
+npm install --save-dev gulp gulp-sass jshint gulp-jshint gulp-concat gulp-uglify gulp-rename gulp-wp-pot gulp-sort gulp-token-replace
+```
+
+3. Change these settings in the settings.json file for your plugin.
 
 ```
 {
@@ -31,3 +41,5 @@ Change these settings in the settings.json file for your plugin then run gulp to
   }
 }
 ```
+
+4.  Run `gulp` to generate your starter plugin.
