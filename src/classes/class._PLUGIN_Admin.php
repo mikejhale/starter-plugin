@@ -38,7 +38,7 @@ class {{plugin.package}}_Admin {
 
 		?>
 		<div class="wrap">
-			<h1>Mike's Plugin Settings</h1>
+			<h1>{{plugin.name}} Settings</h1>
 			<form method="post" action="options.php">
 	        <?php
 	            settings_fields( '{{plugin.function_slug}}_group' );
