@@ -1,3 +1,5 @@
+**This project has not been updated, and the base plugin created does not use best practices in some areas.** 
+
 ## Synopsis
 
 Uses Gulp to generate a starter WordPress plugin
